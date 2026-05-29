@@ -1,0 +1,483 @@
+/* ============================================================
+   Bilal Web — Earthy Premium Design (Robust Selectors)
+   bilalweb.online | Kampala, Uganda
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --olive:          #4a6741;
+  --olive-dark:     #354d2f;
+  --olive-mid:      #5a7a50;
+  --olive-light:    rgba(74,103,65,0.12);
+  --terra:          #c05c2a;
+  --terra-dark:     #a34a1e;
+  --terra-light:    #f5ddd0;
+  --cream:          #faf7f2;
+  --cream-card:     #f2ede3;
+  --charcoal:       #1a1f14;
+  --stone:          #6b6358;
+
+  /* Keep Angular app aliases working */
+  --color-primary-blue:      var(--olive);
+  --color-primary-blue-dark: var(--olive-dark);
+  --color-accent-gold:       var(--terra);
+  --color-accent-gold-dark:  var(--terra-dark);
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  background: var(--cream) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(74,103,65,0.18);
+  color: var(--charcoal);
+}
+
+/* ── NAVBAR ────────────────────────────────────────────────── */
+#nav-header {
+  background: rgba(250,247,242,0.92) !important;
+  backdrop-filter: blur(18px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+  border-bottom-color: rgba(74,103,65,0.15) !important;
+  box-shadow: 0 1px 16px rgba(74,103,65,0.09) !important;
+}
+
+/* Nav brand dot */
+#nav-header .bg-primary-blue { background-color: var(--olive) !important; }
+#nav-header .text-primary-blue { color: var(--olive) !important; }
+
+/* Nav links */
+#nav-desktop-links a:not(.btn-premium-primary) {
+  color: var(--charcoal) !important;
+}
+#nav-desktop-links a:not(.btn-premium-primary):hover {
+  color: var(--olive) !important;
+}
+
+/* Nav link underline effect */
+.link-underline-effect::after {
+  background-color: var(--olive) !important;
+}
+.after\:scale-x-100::after { transform: scaleX(1) !important; }
+
+/* ── MAIN CONTENT BACKGROUND ───────────────────────────────── */
+#main-content {
+  background: var(--cream) !important;
+}
+
+/* ── COMPONENT CLASSES ─────────────────────────────────────── */
+
+/* Eyebrow label */
+.small-label {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terra);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0.22rem 0.75rem;
+  background: rgba(192,92,42,0.09);
+  border-radius: 9999px;
+  border: 1px solid rgba(192,92,42,0.2);
+}
+
+/* Editorial paragraph */
+.editorial-lead {
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: var(--stone);
+  font-weight: 400;
+  max-width: 58ch;
+}
+
+/* Primary CTA — Terracotta */
+.btn-premium-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  padding: 0.85rem 1.75rem !important;
+  border-radius: 0.625rem !important;
+  border: none !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: transform 220ms cubic-bezier(.34,1.56,.64,1), box-shadow 220ms ease !important;
+  box-shadow: 0 4px 18px rgba(192,92,42,0.32), 0 2px 6px rgba(0,0,0,0.1) !important;
+  white-space: nowrap !important;
+}
+.btn-premium-primary:hover {
+  background: linear-gradient(135deg, var(--terra-dark) 0%, #8a3a12 100%) !important;
+  transform: translateY(-2px) scale(1.01) !important;
+  box-shadow: 0 8px 28px rgba(192,92,42,0.42) !important;
+}
+.btn-premium-primary:active { transform: translateY(0) !important; }
+
+/* Secondary CTA — outline */
+.btn-premium-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  background: transparent !important;
+  color: var(--charcoal) !important;
+  font-weight: 700 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  padding: 0.85rem 1.75rem !important;
+  border-radius: 0.625rem !important;
+  border: 2px solid rgba(26,31,20,0.2) !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 220ms cubic-bezier(.34,1.56,.64,1) !important;
+  white-space: nowrap !important;
+}
+.btn-premium-secondary:hover {
+  background: rgba(74,103,65,0.08) !important;
+  border-color: var(--olive) !important;
+  color: var(--olive) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Icon helpers */
+.icon    { display: inline-block; flex-shrink: 0; width: 1.25rem; height: 1.25rem; }
+.icon-sm { width: 1rem;    height: 1rem; }
+.icon-xs { width: 0.875rem; height: 0.875rem; }
+
+/* ── HERO ──────────────────────────────────────────────────── */
+#hero-banner { position: relative; overflow: hidden; }
+
+/* Decorative blob */
+#hero-banner::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -150px;
+  width: 520px; height: 520px;
+  background: radial-gradient(ellipse, rgba(74,103,65,0.08) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+#hero-banner > * { position: relative; z-index: 1; }
+
+/* Hero headline — large & sharp */
+#hero-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: clamp(2.4rem, 6vw, 4.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.06 !important;
+  color: var(--charcoal) !important;
+  /* Remove blue gradient */
+  background: none !important;
+  -webkit-text-fill-color: var(--charcoal) !important;
+}
+
+#hero-subheadline {
+  color: var(--stone) !important;
+  line-height: 1.75 !important;
+}
+
+/* ── PACKAGES SECTION (2nd section in app-home = olive stripe) ── */
+app-home > section:nth-of-type(2) {
+  background: var(--olive) !important;
+  border-radius: 1.5rem !important;
+  padding: 3.5rem 2.5rem !important;
+  border-top: none !important;
+  box-shadow: 0 8px 32px rgba(53,77,47,0.2) !important;
+}
+
+/* Section Header Overrides */
+app-home > section:nth-of-type(2) > div:first-child h2 {
+  color: #ffffff !important;
+  font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+}
+
+app-home > section:nth-of-type(2) > div:first-child .small-label {
+  color: var(--terra-light) !important;
+  background: rgba(192,92,42,0.22) !important;
+  border-color: rgba(192,92,42,0.32) !important;
+}
+
+app-home > section:nth-of-type(2) > div:first-child a:not(.btn-premium-primary) {
+  color: var(--terra-light) !important;
+}
+
+app-home > section:nth-of-type(2) > div:first-child .text-slate-500,
+app-home > section:nth-of-type(2) > div:first-child p {
+  color: rgba(255,255,255,0.70) !important;
+}
+
+/* Fix dynamic cards if they inherit anything (they usually have bg-white natively) */
+app-home > section:nth-of-type(2) .bg-white h3,
+app-home > section:nth-of-type(2) .bg-white .text-slate-900 {
+  color: var(--charcoal) !important;
+}
+app-home > section:nth-of-type(2) .bg-white p,
+app-home > section:nth-of-type(2) .bg-white .text-slate-500 {
+  color: var(--stone) !important;
+}
+
+/* ── WHY I BUILD (section#why-me) ─────────────────────────── */
+#why-me {
+  background: var(--cream-card) !important;
+  border-radius: 1.5rem !important;
+  border: 1px solid rgba(74,103,65,0.12) !important;
+  border-top: none !important;
+  padding: 3rem 2.5rem !important;
+}
+
+#why-me h2 { color: var(--olive-dark) !important; }
+#why-me h3 { color: var(--charcoal) !important; }
+#why-me .small-label { color: var(--terra) !important; }
+#why-me p { color: var(--stone) !important; }
+#why-me .border-l-2 { border-left-color: var(--terra) !important; }
+
+/* Feature icon rings */
+#why-me .rounded-full.bg-slate-100\/80 {
+  background: rgba(74,103,65,0.12) !important;
+}
+#why-me .text-primary-blue { color: var(--olive) !important; }
+#why-me .text-accent-gold-dark { color: var(--terra) !important; }
+
+/* ── CTA BLOCK (olive gradient banner) ─────────────────────── */
+#explore-cta-block {
+  background: linear-gradient(135deg, var(--olive) 0%, var(--olive-dark) 100%) !important;
+  border: none !important;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 12px 40px rgba(53,77,47,0.25) !important;
+}
+
+#explore-cta-block h3 {
+  color: #ffffff !important;
+  font-size: clamp(1.4rem, 3vw, 2rem) !important;
+}
+
+#explore-cta-block p { color: rgba(255,255,255,0.75) !important; }
+
+#explore-cta-block .small-label {
+  color: var(--terra-light) !important;
+  background: rgba(192,92,42,0.22) !important;
+  border-color: rgba(192,92,42,0.32) !important;
+}
+
+/* Secondary button inside green CTA */
+#explore-cta-block .btn-premium-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.35) !important;
+}
+#explore-cta-block .btn-premium-secondary:hover {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.7) !important;
+  color: #ffffff !important;
+}
+
+/* Decorative circle */
+#explore-cta-block > div.absolute {
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* ── FAQ ───────────────────────────────────────────────────── */
+#faq-section h2 { color: var(--olive-dark) !important; }
+#faq-section .small-label { color: var(--terra) !important; }
+#faq-section p  { color: var(--stone) !important; }
+
+#faq-section a:not(.btn-premium-primary) {
+  color: var(--olive) !important;
+}
+#faq-section a:not(.btn-premium-primary):hover {
+  color: var(--olive-dark) !important;
+}
+
+#faq-section .border {
+  border-color: rgba(74,103,65,0.14) !important;
+  border-radius: 1rem !important;
+  background: #ffffff !important;
+  transition: transform 200ms ease, box-shadow 200ms ease !important;
+}
+#faq-section .border:hover {
+  border-color: rgba(74,103,65,0.28) !important;
+  box-shadow: 0 4px 16px rgba(74,103,65,0.12) !important;
+  transform: translateY(-2px) !important;
+}
+#faq-section button { color: var(--charcoal) !important; }
+#faq-section button:hover { background: rgba(74,103,65,0.04) !important; }
+#faq-section .text-slate-400 { color: var(--olive-mid) !important; }
+
+/* ── SERVING LOCATIONS ─────────────────────────────────────── */
+#serving-locations h2 { color: var(--olive-dark) !important; }
+#serving-locations .small-label { color: var(--terra) !important; }
+#serving-locations p  { color: var(--stone) !important; }
+
+#serving-locations .rounded-2xl {
+  background: #ffffff !important;
+  border-color: rgba(74,103,65,0.14) !important;
+}
+
+/* Location dots */
+#serving-locations .bg-primary-blue {
+  background-color: var(--olive) !important;
+}
+
+#serving-locations .text-slate-400 { color: var(--olive-mid) !important; }
+
+/* ── FOOTER ────────────────────────────────────────────────── */
+#footer {
+  background: var(--olive-dark) !important;
+  border-top-color: rgba(74,103,65,0.4) !important;
+}
+#footer * { color: rgba(255,255,255,0.55); }
+#footer #footer-logo { color: #ffffff !important; }
+#footer a:hover { color: #ffffff !important; }
+
+/* Footer online dot */
+#footer .bg-emerald-500 { background-color: var(--terra) !important; }
+
+/* ── SECTION BORDER DIVIDERS ───────────────────────────────── */
+#hero-banner + section,
+#faq-section,
+#serving-locations {
+  border-top-color: rgba(74,103,65,0.14) !important;
+}
+
+/* ── TEXT UTILITY OVERRIDES ────────────────────────────────── */
+.text-primary-blue      { color: var(--olive) !important; }
+.hover\:text-primary-blue:hover      { color: var(--olive) !important; }
+.hover\:text-primary-blue-dark:hover { color: var(--olive-dark) !important; }
+.text-accent-gold-dark  { color: var(--terra) !important; }
+
+/* ── BG UTILITY OVERRIDES ──────────────────────────────────── */
+.bg-primary-blue  { background-color: var(--olive) !important; }
+.bg-accent-gold   { background-color: var(--terra) !important; }
+.bg-slate-950     { background-color: var(--olive-dark) !important; }
+
+/* ── MOBILE EXISTING FAB — terracotta ──────────────────────── */
+#sticky-mobile-fab-cta a {
+  background-color: var(--terra) !important;
+  box-shadow: 0 6px 24px rgba(192,92,42,0.4) !important;
+}
+#sticky-mobile-fab-cta a:hover {
+  background-color: var(--terra-dark) !important;
+}
+
+/* ── FLOATING WHATSAPP FAB ─────────────────────────────────── */
+#whatsapp-fab {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 9999;
+}
+#whatsapp-fab-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: linear-gradient(135deg, #25d366 0%, #1dab50 100%);
+  color: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.15);
+  border: 2.5px solid rgba(255,255,255,0.9);
+  transition: transform 200ms cubic-bezier(.34,1.56,.64,1), box-shadow 200ms ease;
+  animation: fabEntrance 0.6s cubic-bezier(.34,1.56,.64,1) forwards;
+  animation-delay: 1.2s;
+}
+#whatsapp-fab-link:hover {
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 10px 36px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.18);
+}
+#whatsapp-fab-link:active { transform: scale(0.96); }
+#whatsapp-fab-icon { width: 1.6rem; height: 1.6rem; color: #fff; flex-shrink: 0; }
+
+#whatsapp-fab-pulse {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(37,211,102,0.45);
+  animation: fabPulse 2.4s ease-out infinite;
+  animation-delay: 1.8s;
+  pointer-events: none;
+}
+
+#whatsapp-fab-tooltip {
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateY(-50%) scale(0.88);
+  background: var(--olive-dark);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.22);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+#whatsapp-fab-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -5px; top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right: 0;
+  border-left-color: var(--olive-dark);
+}
+#whatsapp-fab-link:hover #whatsapp-fab-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+@keyframes fabPulse {
+  0%   { transform: scale(1); opacity: 0.65; }
+  70%  { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes fabEntrance {
+  from { opacity: 0; transform: scale(0.4) translateY(24px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── FADE IN ANIMATION ─────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeInUp 0.65s cubic-bezier(.22,1,.36,1) both; }
+
+/* ── REDUCED MOTION ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #whatsapp-fab-pulse,
+  #whatsapp-fab-link,
+  .animate-fade-in { animation: none !important; }
+  #whatsapp-fab-link { opacity: 1 !important; }
+}
+
+/* ── PRINT ─────────────────────────────────────────────────── */
+@media print {
+  #nav-header, #sticky-mobile-fab-cta, #whatsapp-fab { display: none !important; }
+  #main-content { padding-top: 0 !important; }
+}
