@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "Client contact inquiry submitted from the site contact form.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "The unique ID for the inquiry" },
+        "name": { "type": "string", "description": "Client's name" },
+        "businessName": { "type": "string", "description": "Client's business or organization" },
+        "contactInfo": { "type": "string", "description": "Client's contact details (Email/Phone)" },
+        "message": { "type": "string", "description": "Technical scope or message content" },
+        "timestamp": { "type": "string", "format": "date-time", "description": "When the inquiry was submitted" }
+      },
+      "required": ["id", "name", "contactInfo", "message", "timestamp"]
+    },
+    "Subscriber": {
+      "title": "Subscriber",
+      "description": "Newsletter subscriber email.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "description": "The subscriber's email address" },
+        "dateSubscribed": { "type": "string", "format": "date-time", "description": "When they subscribed" }
+      },
+      "required": ["email", "dateSubscribed"]
+    }
+  },
+  "firestore": {
+    "inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Collection of customer inquiry submissions."
+    },
+    "subscribers/{subscriberId}": {
+      "schema": "Subscriber",
+      "description": "Collection of newsletter subscriptions."
+    }
+  }
+}

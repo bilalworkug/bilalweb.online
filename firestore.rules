@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn();
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Collection: Inquiries
+    match /inquiries/{inquiryId} {
+      allow create: if isValidId(inquiryId) && isValidInquiry(incoming());
+      allow get, delete: if isAdmin();
+      allow list: if isAdmin();
+      allow update: if false; // Contact inquiries are strictly immutable!
+    }
+
+    // Collection: Subscribers
+    match /subscribers/{subscriberId} {
+      allow create: if isValidId(subscriberId) && isValidSubscriber(incoming());
+      allow get, delete: if isAdmin();
+      allow list: if isAdmin();
+      allow update: if false; // Newsletter listings are strictly immutable!
+    }
+
+    // Collection: Admins
+    match /admins/{adminId} {
+      allow read: if isSignedIn() && (request.auth.uid == adminId || isAdmin());
+      allow write: if false; // Manageable by admins only in Console
+    }
+
+    // Schema validation definitions
+    function isValidInquiry(data) {
+      return data.keys().hasAll(['id', 'name', 'contactInfo', 'message', 'timestamp'])
+          && data.keys().size() <= 6
+          && data.id is string && data.id.size() <= 128
+          && data.name is string && data.name.size() <= 300
+          && (data.get('businessName', 'N/A') is string) && data.get('businessName', 'N/A').size() <= 300
+          && data.contactInfo is string && data.contactInfo.size() <= 300
+          && data.message is string && data.message.size() <= 10000
+          && data.timestamp is string && data.timestamp.size() <= 100;
+    }
+
+    function isValidSubscriber(data) {
+      return data.keys().hasAll(['email', 'dateSubscribed'])
+          && data.keys().size() == 2
+          && data.email is string && data.email.size() <= 300
+          && data.dateSubscribed is string && data.dateSubscribed.size() <= 100;
+    }
+  }
+}
