@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules/
+
+# Local Firebase configuration and cache
+.firebase/
+firebase-applet-config.json
+
+# Backups
+*.bak
+*.bak_additional
+
+# OS metadata
+.DS_Store
+Thumbs.db

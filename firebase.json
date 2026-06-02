@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.bak",
+      "**/*.bak_additional",
+      "firebase-applet-config.json"
+    ]
+  }
+}
