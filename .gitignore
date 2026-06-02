@@ -12,3 +12,17 @@ firebase-applet-config.json
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Security & local scripts — never commit these
+patch_security.ps1
+*.ps1
+*.sh
+
+# Local data files (generated at runtime)
+inquiries.json
+subscribers.json
+data/*.json
+
+# Editor/IDE folders
+.vscode/
+.idea/
