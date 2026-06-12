@@ -9,6 +9,8 @@
       "**/*.bak_additional",
       "firebase-applet-config.json"
     ],
+    "cleanUrls": true,
+    "trailingSlash": true,
     "headers": [
       {
         "source": "**",
